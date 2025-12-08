@@ -21,4 +21,8 @@ class ExpenseRepositoryImpl(private val expenseDao: ExpenseDao) : ExpenseReposit
     override fun getAllExpenses(): Flow<List<Expense>> {
         return expenseDao.getAllExpenses()
     }
+
+    override fun getExpensesBetween(startDate: Long, endDate: Long): Flow<List<Expense>> {
+        return expenseDao.getExpensesBetween(startDate, endDate)
+    }
 }

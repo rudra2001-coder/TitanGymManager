@@ -1,5 +1,7 @@
 package com.rudra.titangymmanager.ui.screens.expiry
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -7,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rudra.titangymmanager.R
@@ -60,9 +63,14 @@ fun ExpiryScreen(
 
 @Composable
 fun ExpiryList(members: List<Member>) {
+    val context = LocalContext.current
     LazyColumn {
         items(members) { member ->
-            MemberListItem(member = member, onClick = { /* TODO: Implement phone call */ })
+            MemberListItem(member = member, onClick = { 
+                // TODO: Handle phone call permission
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:${member.phoneNumber}"))
+                context.startActivity(intent)
+            })
         }
     }
 }

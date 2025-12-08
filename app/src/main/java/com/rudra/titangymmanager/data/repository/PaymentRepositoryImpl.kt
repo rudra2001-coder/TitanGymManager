@@ -17,4 +17,8 @@ class PaymentRepositoryImpl(private val paymentDao: PaymentDao) : PaymentReposit
     override fun getAllPayments(): Flow<List<Payment>> {
         return paymentDao.getAllPayments()
     }
+
+    override fun getPaymentsBetween(startDate: Long, endDate: Long): Flow<List<Payment>> {
+        return paymentDao.getPaymentsBetween(startDate, endDate)
+    }
 }

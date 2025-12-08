@@ -2,16 +2,10 @@ package com.rudra.titangymmanager.data
 
 import android.content.Context
 import androidx.room.*
-import com.rudra.titangymmanager.data.dao.ExpenseDao
-import com.rudra.titangymmanager.data.dao.MemberDao
-import com.rudra.titangymmanager.data.dao.MembershipPackageDao
-import com.rudra.titangymmanager.data.dao.PaymentDao
-import com.rudra.titangymmanager.data.model.Expense
-import com.rudra.titangymmanager.data.model.Member
-import com.rudra.titangymmanager.data.model.MembershipPackage
-import com.rudra.titangymmanager.data.model.Payment
+import com.rudra.titangymmanager.data.dao.*
+import com.rudra.titangymmanager.data.model.*
 
-@Database(entities = [Member::class, MembershipPackage::class, Payment::class, Expense::class], version = 3, exportSchema = false)
+@Database(entities = [Member::class, MembershipPackage::class, Payment::class, Expense::class, Equipment::class, Trainer::class], version = 5, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -19,6 +13,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun membershipPackageDao(): MembershipPackageDao
     abstract fun paymentDao(): PaymentDao
     abstract fun expenseDao(): ExpenseDao
+    abstract fun equipmentDao(): EquipmentDao
+    abstract fun trainerDao(): TrainerDao
 
     companion object {
         @Volatile

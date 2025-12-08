@@ -2,10 +2,7 @@ package com.rudra.titangymmanager.di
 
 import android.content.Context
 import com.rudra.titangymmanager.data.AppDatabase
-import com.rudra.titangymmanager.data.dao.ExpenseDao
-import com.rudra.titangymmanager.data.dao.MemberDao
-import com.rudra.titangymmanager.data.dao.MembershipPackageDao
-import com.rudra.titangymmanager.data.dao.PaymentDao
+import com.rudra.titangymmanager.data.dao.*
 import com.rudra.titangymmanager.data.repository.*
 import dagger.Module
 import dagger.Provides
@@ -50,6 +47,18 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideEquipmentDao(appDatabase: AppDatabase): EquipmentDao {
+        return appDatabase.equipmentDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrainerDao(appDatabase: AppDatabase): TrainerDao {
+        return appDatabase.trainerDao()
+    }
+
+    @Provides
+    @Singleton
     fun provideMemberRepository(memberDao: MemberDao): MemberRepository {
         return MemberRepositoryImpl(memberDao)
     }
@@ -70,5 +79,23 @@ object AppModule {
     @Singleton
     fun provideExpenseRepository(expenseDao: ExpenseDao): ExpenseRepository {
         return ExpenseRepositoryImpl(expenseDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideEquipmentRepository(equipmentDao: EquipmentDao): EquipmentRepository {
+        return EquipmentRepositoryImpl(equipmentDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrainerRepository(trainerDao: TrainerDao): TrainerRepository {
+        return TrainerRepositoryImpl(trainerDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSettingsRepository(@ApplicationContext context: Context): SettingsRepository {
+        return SettingsRepository(context)
     }
 }

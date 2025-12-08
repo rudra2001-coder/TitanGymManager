@@ -15,4 +15,7 @@ interface PaymentDao {
 
     @Query("SELECT * FROM payments ORDER BY date DESC")
     fun getAllPayments(): Flow<List<Payment>>
+
+    @Query("SELECT * FROM payments WHERE date BETWEEN :startDate AND :endDate")
+    fun getPaymentsBetween(startDate: Long, endDate: Long): Flow<List<Payment>>
 }

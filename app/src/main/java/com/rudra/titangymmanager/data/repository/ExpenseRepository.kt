@@ -12,4 +12,6 @@ interface ExpenseRepository {
     suspend fun deleteExpense(expense: Expense)
 
     fun getAllExpenses(): Flow<List<Expense>>
+
+    fun getExpensesBetween(startDate: Long, endDate: Long): Flow<List<Expense>>
 }

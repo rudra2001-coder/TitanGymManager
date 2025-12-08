@@ -10,4 +10,6 @@ interface PaymentRepository {
     fun getPaymentsForMember(memberId: Long): Flow<List<Payment>>
 
     fun getAllPayments(): Flow<List<Payment>>
+
+    fun getPaymentsBetween(startDate: Long, endDate: Long): Flow<List<Payment>>
 }
