@@ -23,4 +23,6 @@
     <string name="in_3_days">In 3 Days</string>
     <string name="in_7_days">In 7 Days</string>
     <string name="this_month">This Month</string>
+    <string name="expenses">expenses</string>
+    <string name="add_expense">add_expenses</string>
 </resources>
