@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">TitanGym Manager</string>
+    <string name="add_member">Add Member</string>
+    <string name="member_name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="save_member">Save Member</string>
+    <string name="membership_packages">Membership Packages</string>
+    <string name="add_package">Add Package</string>
+    <string name="package_name">Package Name</string>
+    <string name="duration_days">Duration (days)</string>
+    <string name="price">Price</string>
+    <string name="description">Description</string>
+    <string name="save_package">Save Package</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="total_members">Total Members</string>
+    <string name="active_members">Active Members</string>
+    <string name="expired_members">Expired Members</string>
+    <string name="due_members">Due Members</string>
+    <string name="expiry_alerts">Expiry Alerts</string>
+    <string name="today">Today</string>
+    <string name="in_3_days">In 3 Days</string>
+    <string name="in_7_days">In 7 Days</string>
+    <string name="this_month">This Month</string>
+</resources>
