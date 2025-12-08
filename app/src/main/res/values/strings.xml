@@ -25,4 +25,14 @@
     <string name="this_month">This Month</string>
     <string name="expenses">expenses</string>
     <string name="add_expense">add_expenses</string>
+    <string name="category">Category</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="receipt_photo">Receipt Photo</string>
+    <string name="save_expense">Save Expense</string>
+    <string name="members">Members</string>
+    <string name="packages">Packages</string>
+    <string name="expiry">Expiry</string>
+
+
 </resources>
