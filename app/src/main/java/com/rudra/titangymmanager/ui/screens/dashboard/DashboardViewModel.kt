@@ -2,6 +2,7 @@ package com.rudra.titangymmanager.ui.screens.dashboard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rudra.titangymmanager.data.model.MonthlyIncome
 import com.rudra.titangymmanager.data.model.MonthlyNewMembers
 import com.rudra.titangymmanager.data.repository.MemberRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,22 +17,83 @@ class DashboardViewModel @Inject constructor(
     private val memberRepository: MemberRepository
 ) : ViewModel() {
 
+    // For member counts
     val totalMembers: StateFlow<Int> = memberRepository.getAllMembers()
-        .map { it.size }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
+        .map { members -> members.size }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0
+        )
 
     val activeMembers: StateFlow<Int> = memberRepository.getActiveMembers()
-        .map { it.size }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
+        .map { members -> members.size }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0
+        )
 
     val expiredMembers: StateFlow<Int> = memberRepository.getExpiredMembers()
-        .map { it.size }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
+        .map { members -> members.size }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0
+        )
 
     val dueMembers: StateFlow<Int> = memberRepository.getDuePaymentMembers()
-        .map { it.size }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
+        .map { members -> members.size }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0
+        )
+
+    // For today's data
+    val todayNewMembers: StateFlow<Int> = memberRepository.getTodayNewMembers()
+        .map { members -> members.size }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0
+        )
+
+    val todayRenewals: StateFlow<Int> = memberRepository.getTodayRenewals()
+        .map { members -> members.size }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0
+        )
+
+    // For income data - make sure these return Flow<Double> in repository
+    val incomeToday: StateFlow<Double> = memberRepository.getIncomeToday()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0.0
+        )
+
+    val incomeThisMonth: StateFlow<Double> = memberRepository.getIncomeThisMonth()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = 0.0
+        )
+
+    // For chart data
+    val monthlyIncomeData: StateFlow<List<MonthlyIncome>> = memberRepository.getMonthlyIncomeData()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
 
     val monthlyNewMembers: StateFlow<List<MonthlyNewMembers>> = memberRepository.getMonthlyNewMembers()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
 }

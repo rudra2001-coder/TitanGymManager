@@ -21,5 +21,15 @@ data class Member(
     val membershipEndDate: Long,
     val feesPaid: Double,
     val dueAmount: Double,
-    val paymentMethod: String
+    val paymentMethod: String,
+    val registrationDate: Long? = null,
+    val lastRenewalDate: Long? = null,
+    val paymentAmount: Double? = null,
+    val paymentDate: Long? = null,
+    val lastPaymentDate: Long? = null,
+    val lastPaymentAmount: Double? = null,
+    val lastPaymentMode: String? = null,
+
+    // Add other fields as needed
+
 )

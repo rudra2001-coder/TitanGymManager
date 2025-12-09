@@ -5,7 +5,7 @@ import androidx.room.*
 import com.rudra.titangymmanager.data.dao.*
 import com.rudra.titangymmanager.data.model.*
 
-@Database(entities = [Member::class, MembershipPackage::class, Payment::class, Expense::class, Equipment::class, Trainer::class], version = 5, exportSchema = false)
+@Database(entities = [Member::class, MembershipPackage::class, Payment::class, Expense::class, Equipment::class, Trainer::class], version = 6, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -27,7 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "titan_gym_manager_db"
                 )
-                .fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration(false)
                 .build()
                 INSTANCE = instance
                 instance
