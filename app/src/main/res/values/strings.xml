@@ -52,4 +52,6 @@
     <string name="edit_member">Edit Member</string>
     <string name="delete_member">Delete Member</string>
     <string name="back">Back</string>
+    <string name="backup_database">Backup Database</string>
+    <string name="restore_database">Restore Database</string>
 </resources>

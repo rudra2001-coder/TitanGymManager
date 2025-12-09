@@ -4,6 +4,7 @@ import android.content.Context
 import com.rudra.titangymmanager.data.AppDatabase
 import com.rudra.titangymmanager.data.dao.*
 import com.rudra.titangymmanager.data.repository.*
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -98,4 +99,11 @@ object AppModule {
     fun provideSettingsRepository(@ApplicationContext context: Context): SettingsRepository {
         return SettingsRepository(context)
     }
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class BackupModule {
+    @Binds
+    abstract fun bindBackupRepository(impl: BackupRepositoryImpl): BackupRepository
 }
