@@ -262,7 +262,7 @@ fun MonthlyIncomeGraph(monthlyIncomeData: List<MonthlyIncome>) {
                 axisLeft.typeface = android.graphics.Typeface.DEFAULT_BOLD
                 axisLeft.valueFormatter = object : ValueFormatter() {
                     override fun getAxisLabel(value: Float, axis: AxisBase?): String {
-                        return "₹${value.toInt()}"
+                        return "৳${value.toInt()}"
                     }
                 }
 

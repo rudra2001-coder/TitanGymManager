@@ -170,8 +170,8 @@ fun DashboardScreen(
                                 "Due Members" -> dueMembers.toString()
                                 "Today's New" -> todayNewMembers.toString()
                                 "Today's Renewals" -> todayRenewals.toString()
-                                "Income Today" -> "₹${incomeToday.toInt()}"
-                                "Income This Month" -> "₹${incomeThisMonth.toInt()}"
+                                "Income Today" -> "৳${incomeToday.toInt()}"
+                                "Income This Month" -> "৳${incomeThisMonth.toInt()}"
                                 else -> "0"
                             }
                         )
